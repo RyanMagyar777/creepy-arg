@@ -2,34 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neon Time Machine</title>
+  <title>My Portal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1 class="neon">Welcome to the Neon Time Machine</h1>
-    <p class="subtext">Your portal to an unknown future... or maybe the past?</p>
-    
-    <button class="cta-button" onclick="showAlert()">Activate the Time Machine</button>
-    
-    <div class="time-info">
-      <h2>The Time Is:</h2>
-      <div id="time"></div>
-    </div>
-  </div>
-  
-  <script>
-    function showAlert() {
-      alert("Time Travel Activated! Prepare for strange adventures.");
-    }
+  <audio autoplay loop>
+    <source src="bg-music.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
 
-    function updateTime() {
-      let date = new Date();
-      document.getElementById("time").innerText = date.toLocaleTimeString();
-    }
-    
-    setInterval(updateTime, 1000); // Update every second
-  </script>
+  <div class="wrapper">
+    <header>
+      <h1>My Portal Dashboard</h1>
+    </header>
+
+    <section class="button-section">
+      <button onclick="alert('Hello!')">Click Me</button>
+      <button onclick="alert('Feature coming soon!')">Weather Alert</button>
+      <button onclick="alert('Loading data...')">System Check</button>
+    </section>
+
+    <section class="weather-section">
+      <h2>Weather</h2>
+      <div class="weather-box">
+        <img src="weather-icon.png" alt="Weather Icon">
+        <div>
+          <p><strong>Location:</strong> Unknown</p>
+          <p><strong>Condition:</strong> Mostly cloudy</p>
+          <p><strong>Temp:</strong> 72°F</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="updates-section">
+      <h2>Latest Updates</h2>
+      <ul>
+        <li>🔧 System maintenance scheduled for Friday 3PM</li>
+        <li>🌐 New portal design is live</li>
+        <li>🎵 Background music enabled</li>
+      </ul>
+    </section>
+  </div>
 </body>
 </html>
