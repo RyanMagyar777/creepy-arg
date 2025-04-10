@@ -1,69 +1,76 @@
 body {
-  background-color: black;
-  color: red;
-  font-family: "Courier New", monospace;
-  overflow: hidden;
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
 }
 
-.container {
+.wrapper {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+header {
   text-align: center;
-  margin-top: 100px;
-  z-index: 2;
-  position: relative;
+  margin-bottom: 40px;
 }
 
-.redtext {
-  color: #ff0000;
-  font-size: 1.2em;
+h1 {
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+
+.button-section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+button {
+  background-color: #222;
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  padding: 15px 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #00ffff;
+  color: #000;
+}
+
+.weather-section {
+  background: #1a1a1a;
+  padding: 20px;
   margin-bottom: 30px;
+  border-left: 5px solid #00ffff;
 }
 
-.menu li {
-  list-style: none;
-  margin: 10px 0;
+.weather-box {
+  display: flex;
+  align-items: center;
 }
 
-.menu a {
-  color: #aaa;
-  text-decoration: none;
-  font-size: 1.1em;
+.weather-box img {
+  width: 60px;
+  margin-right: 20px;
 }
 
-.menu a:hover {
-  color: #ff0000;
-  text-shadow: 0 0 5px red;
+.updates-section {
+  background: #1a1a1a;
+  padding: 20px;
+  border-left: 5px solid #ff00ff;
 }
 
-.footer {
-  margin-top: 60px;
-  font-size: 0.9em;
-  color: #555;
+ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
-.glitchy {
-  color: white;
-  font-size: 2em;
-  text-shadow: 2px 0 red, -2px 0 blue;
-  animation: glitch 1s infinite;
-}
-
-@keyframes glitch {
-  0% { text-shadow: 2px 0 red, -2px 0 blue; }
-  20% { text-shadow: -2px -1px lime, 2px 2px magenta; }
-  40% { text-shadow: 3px -1px red, -3px 1px blue; }
-  60% { text-shadow: -2px 2px lime, 2px -2px magenta; }
-  80% { text-shadow: 2px 0 red, -2px 0 blue; }
-  100% { text-shadow: 2px 0 red, -2px 0 blue; }
-}
-
-#static-overlay {
-  background: url('static.gif') repeat;
-  opacity: 0.15;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  pointer-events: none;
+li {
+  margin-bottom: 10px;
 }
