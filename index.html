@@ -2,46 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>News</title></title>
-  <link rel="stylesheet" href="style.css">
+  <title>Live Weather</title>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="bg-music.mp3" type="audio/mpeg">
-    Your browser does not support audio.
-  </audio>
+  <h1>Weather in Your Location</h1>
+  <div id="weather">Getting your weather...</div>
 
-  <div class="wrapper">
-    <header>
-      <h1>My News Dashboard</h1>
-    </header>
+  <script>
+    function getWeather(lat, lon) {
+      const apiKey = "YOUR_API_KEY"; // Replace with your OpenWeatherMap API key
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+      
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          const weatherDiv = document.getElementById("weather");
+          weatherDiv.innerHTML = `
+            <p><strong>Location:</strong> ${data.name}</p>
+            <p><strong>Condition:</strong> ${data.weather[0].description}</p>
+            <p><strong>Temperature:</strong> ${data.main.temp}°F</p>
+          `;
+        });
+    }
 
-    <section class="button-section">
-      <button onclick="alert('Hello!')">Click Me</button>
-      <button onclick="alert('Feature coming soon!')">Weather Alert</button>
-      <button onclick="alert('Loading data...')">System Check</button>
-    </section>
-
-    <section class="weather-section">
-      <h2>Weather</h2>
-      <div class="weather-box">
-        <img src="weather-icon.png" alt="Weather Icon">
-        <div>
-          <p><strong>Location:</strong> Unknown</p>
-          <p><strong>Condition:</strong> Mostly cloudy</p>
-          <p><strong>Temp:</strong> 72°F</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="updates-section">
-      <h2>Latest Updates</h2>
-      <ul>
-        <li>🔧 System maintenance scheduled for Friday 3PM</li>
-        <li>🌐 New portal design is live</li>
-        <li>🎵 Background music enabled</li>
-      </ul>
-    </section>
-  </div>
+    navigator.geolocation.getCurrentPosition(
+      pos => getWeather(pos.coords.latitude, pos.coords.longitude),
+      err => {
+        document.getElementById("weather").innerText = "Location access denied.";
+      }
+    );
+  </script>
 </body>
 </html>
